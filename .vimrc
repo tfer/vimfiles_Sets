@@ -11,17 +11,17 @@
 
 " some hardcoded constants for this script, change to your values
 "   Path to your collection of Vim installation repositories:
-let s:vimReposPath = 'C:\VC\Git\vimfiles_Sets\'
+let g:vimReposPath = 'C:\VC\Git\vimfiles_Sets\'
 "   Name of the directory holding your vimfiles, i.e., your Vim install
-let s:personalRepo = "tfer"
+let g:personalRepo = "tfer"
 
 " bring in the value of 'ActiveVimRepo' as seen by this scripts invocation
 let s:repo = $ActiveVimRepo
 if s:repo == ""
-    let s:repo = s:personalRepo
+    let s:repo = g:personalRepo
 endif
 
-let s:vimfiles = s:vimReposPath . s:repo
+let s:vimfiles = g:vimReposPath . s:repo
 
 " replace in the runtimepath the auto-generated references to the user's
 " vimfiles and vimfiles/after directories
@@ -35,10 +35,11 @@ let &rtp = s:rt_path
 
 "chain load a copy of the vimrc, (possibly "modified by you"), in the repo named
 " 'vimrc_toLoad'
-execute "source " . s:vimReposPath . s:repo . '\vimrc_toLoad'
+execute "source " . g:vimReposPath . s:repo . '\vimrc_toLoad'
 
 "chain load any of your own customizations for this repo
 let s:extraconfigfile=s:vimfiles.'\vimrc_post'
 if filereadable(s:extraconfigfile)
     execute "source " s:extraconfigfile
 endif
+
