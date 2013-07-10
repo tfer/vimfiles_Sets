@@ -9,11 +9,10 @@ installations a trial run, rather than just combing through their files
 looking for "gems" to add to your own installation. That is what
 Testdriver allows you to do.
 
-It works this way, you clone a vim installation you want to explore into
-a folder named, "Vimfiles_Sets", then, rename the top folder with the
-creator's github name. You locate the "vimrc" file that controls the
-configuration, then copy it and save it in the top folder as
-"vimrc_toLoad". Repeat this for all the installations you want to test
+It works this way, you create a subfolder in the "Installs" folder, naming it with the vim installation creator's github name. You then clone his installation into
+a subfolder named "seed".  Next create a folder named "go" at the same level as "seed".  "go" is meant to contain all the vimfiles for the installation in a modified form to allow you to test drive it.  Either checkout a working copy into this directory or just copy them over.  Next locate the "vimrc" file that controls the
+configuration, then copy it and save it in the "go" folder as
+"vimrc_2ndStage". Repeat this for all the installations you want to test
 drive.
 
 Now we just have to rename your current vimrc file to "vimrc_forMe", and
