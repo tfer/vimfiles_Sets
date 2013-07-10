@@ -1,3 +1,5 @@
+Note: As this has not yet reached a release yet, if you want to try this out use the develop branch instead of Master.
+
 This repository contains and demonstrates a way to run your own Vim out of a local git repository, plus provides a way to temporalily run an instance of another person's Vim installation.
 
 Install
