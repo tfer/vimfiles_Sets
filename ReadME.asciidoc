@@ -1,66 +1,81 @@
-= Vim Testdriver Tom Fetherston <tfethers@gmail.com>
+= Vim-Testdriver Tom Fetherston <tfethers@gmail.com>
 
 
 == A way to try out other people's vim installations.
 
-With the advent of people putting a versioned instance of their vim
-installation on Github, it would be nice to be able to give those
-installations a trial run, rather than just combing through their files
-looking for "gems" to add to your own installation. That is what
-Testdriver allows you to do.
+Now that a lot of people are putting a versioned instance of their vim
+installation on Github, it would be nice to be able to give those installations
+a trial run, rather than just combing through their files looking for "gems" to
+add to your own installation. That is what Vim Testdriver allows you to do.
 
-It works this way, you create a subfolder in the "Installs" folder, naming it with the vim installation creator's github name. You then clone his installation into
-a subfolder named "seed".  Next create a folder named "go" at the same level as "seed".  "go" is meant to contain all the vimfiles for the installation in a modified form to allow you to test drive it.  Either checkout a working copy into this directory or just copy them over.  Next locate the "vimrc" file that controls the
-configuration, then copy it and save it in the "go" folder as
-"vimrc_2ndStage". Repeat this for all the installations you want to test
-drive.
+Vim-Testdriver comes with a number of interesting vim installations that I have
+found around on the net, (mostly from github).  These may focus on working with
+a single language, e.g. python, or ruby, or use different plugin managers, e.g.
+pathogen, vundle, neobundle, or just looked interesting based on design,
+plugins, or the amount of effort put into it.
 
-Now we just have to rename your current vimrc file to "vimrc_forMe", and
-put in our switching vimrc file. This new vimrc file is set up to just
-start your original vim installation whenever you you do a normal vim
-startup, however, there are some scripts and programs, (what you use
-depends on your OS), that will let you choose one of the cloned
-installations to take for a test drive.
+You can easily add your own discovered "Vim Installations" and then take them
+for a testdrive.  You can even add your own installation, get it working as a
+git repository, and then post it on github, all without touching your current
+vim setup!
 
-== How this works
+== Adding/creating your own
 
-What the test drive starter does is present you with a list of the
-installations you have installed, gets your choice, and then sets a
-temporary environment variable that overshadows a permanent environment
-variable that points to your vim installation. The starter then calls
-the switching vimrc in such a way that the temporary environment
-variable is in force so that its value will start up the vim
-installation you want to test drive.
+Each, ready to go, customized vim instance lives in its own folder named "go",
+each in a sub directory of "Installs" named with its creator's github name.  
+
+It works this way, you create a subfolder in the "Installs" folder, naming it
+with the vim installation creator's github name. You then clone his installation
+into a subfolder named "seed".  Next create a folder named "go" at the same
+level as "seed".  "go" is meant to contain all the vimfiles for the installation
+in a modified form to allow you to test drive it.  Either checkout a working
+copy into this directory or just copy them over.  Next locate the "vimrc" file
+that controls the configuration, then copy it and save it in the "go" folder as
+"vimrc_2ndStage". Repeat this for all the installations you want to test drive.
+
+Now we just have to rename your current vimrc file to "vimrc_forMe", and put in
+our switching vimrc file. This new vimrc file is set up to just start your
+original vim installation whenever you you do a normal vim startup, however,
+there are some scripts and programs, (what you use depends on your OS), that
+will let you choose one of the cloned installations to take for a test drive.
+
+== How to take test drives
+
+What the test drive starter does is present you with a list of the installations
+you have installed, gets your choice, and then sets a temporary environment
+variable that overshadows a permanent environment variable that points to your
+vim installation. The starter then calls the switching vimrc in such a way that
+the temporary environment variable is in force so that its value will start up
+the vim installation you want to test drive.
 
 == Some other uses for this scheme
 
 Besides just providing test drives, you can also use this to work on
-transitioning your own vim installation into one that is easily put on
-Github. It's also useful to add in, or change from Pathogen or Vundle,
-all while leaving your original installation intact are you working out
-the bugs.
+transitioning your own vim installation into one that is easily put on Github.
+It's also useful to add in, or change from Pathogen or Vundle, all while leaving
+your original installation intact are you working out the bugs.
 
 == Current Status
 
-Currently this is set up to work on Windows. The same scheme should work
-on Windows, Linux, and Mac — but the starters for Linux and Mac either
-don't exist yet or aren't very polished, (Contributions welcome here)
+Currently this is set up to work on Windows. The same scheme should work on
+Windows, Linux, and Mac — but the starters for Linux and Mac either don't exist
+yet or aren't very polished, (Contributions welcome here)
 
 
 == Future Refinements
 
-You probably already have some vim plug-ins/optimizations that you are
-loath to live without, the plan is to make them available through a
-generic "vimrc_Post" file that you place in each Set, (the top folder,
-again). The idea is that the generic file will have all its
-configuration code commented out, so whenever you want to add in some of
-the functionality, just un-comment it's configuration. For example, I
-use the Appegio plug-in to let me use 'jk' – corded to return to normal
-mode. So when I go to explore some vim installation that does not have
-that, all I have to do is edit the local copy of vimrc_Post,
-uncommenting it's configuration code, and then the next time explore
-that vim installation all have that functionality.
+You probably already have some vim plug-ins/optimizations that you are loath to
+live without, the plan is to make them available through a generic "vimrc_Post"
+file that you place in each Set, (the top folder, again). The idea is that the
+generic file will have all its configuration code commented out, so whenever you
+want to add in some of the functionality, just un-comment it's configuration.
+For example, I use the Appegio plug-in to let me use 'jk' – corded to return to
+normal mode. So when I go to explore some vim installation that does not have
+that, all I have to do is edit the local copy of vimrc_Post, uncommenting it's
+configuration code, and then the next time explore that vim installation all
+have that functionality.
 
 
 // vim: set syntax=asciidoc:
+
 
